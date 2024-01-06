@@ -2,6 +2,7 @@ const express = require("express");
 const next = require("next");
 const bodyParser = require("body-parser");
 const userRouter = require("./routers/users");
+const blogRouter = require("./routers/blog");
 const dev = process.env.NODE_ENV !== "production";
 const mongoose = require("mongoose");
 const app = next({ dev });
@@ -36,6 +37,7 @@ app.prepare().then(() => {
 
   // API routes
   server.use("/", userRouter);
+  server.use("/", blogRouter);
 
   // Handle other Next.js routes
   server.all("*", (req, res) => {

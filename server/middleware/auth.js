@@ -17,9 +17,11 @@ module.exports = (req, res, next) => {
   try {
     // Verify the token
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    console.log("Decoded Token:", decodedToken);
 
     // Attach the decoded token to the request object
-    req.userData = { userId: decodedToken.userId };
+    // req.userData = { userId: decodedToken.userId };
+    req.userData = { userId: decodedToken.id }; // Update this line
 
     next();
   } catch (error) {
