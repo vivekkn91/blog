@@ -36,10 +36,11 @@ const getBlogs = catchAsyncError(async (req, res, next) => {
 
 const editSingleBlog = catchAsyncError(async (req, res, next) => {
   const blogID = req.params.id;
+  console.log(blogID);
   const { Title, description } = req.body;
 
   // Find the blog by blogID in the database
-  const existingBlog = await Blog.findOne({ blogID: blogID });
+  const existingBlog = await blog.findOne({ blogID: blogID });
 
   if (!existingBlog) {
     return res.status(404).json({

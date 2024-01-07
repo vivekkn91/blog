@@ -31,7 +31,6 @@ app.prepare().then(() => {
 
   // Custom Middleware
   server.use((req, res, next) => {
-    console.log("This is a custom middleware");
     next();
   });
 

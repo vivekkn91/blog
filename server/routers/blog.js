@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.post("/blog/add", AuthJWT, addblog);
 router.get("/blog/show", getBlogs);
-router.get("/blogs/:id", getSingleBlog);
+router.get("/blognew/:id", getSingleBlog);
 
-router.put("/blogs/:id", AuthJWT, editSingleBlog);
+router.put("/blog/:id", AuthJWT, editSingleBlog);
 module.exports = router;
