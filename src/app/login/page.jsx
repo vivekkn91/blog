@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
+import baseUrl from "@/app/api-config";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch("/login/user", {
+      const response = await fetch(`${baseUrl}login/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

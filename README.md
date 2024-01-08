@@ -7,11 +7,11 @@ First, run the development server:
 ```bash
 npm start
 # or
-yarn run
+yarn start
 # or
-pnpm run
+pnpm start
 # or
-bun run
+bun start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

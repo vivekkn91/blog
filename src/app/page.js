@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/app/components/header";
+import baseUrl from "@/app/api-config";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
@@ -10,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:3000/blog/show");
+        const response = await fetch(`${baseUrl}blog/show`);
         if (response.ok) {
           const data = await response.json();
           setBlogs(data.data);

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Header from "@/app/components/header";
+import baseUrl from "@/app/api-config";
 const AddBlog = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -13,7 +14,7 @@ const AddBlog = () => {
       // Retrieve the token from localStorage
       const token = localStorage.getItem("token");
 
-      const response = await fetch("blog/add", {
+      const response = await fetch(`${baseUrl}blog/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

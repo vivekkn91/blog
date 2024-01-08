@@ -11,7 +11,7 @@ const Header = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     // Redirect to the login page after logout
-    router.push("/login");
+    router.push("/");
   };
 
   return (

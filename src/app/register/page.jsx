@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import baseUrl from "@/app/api-config";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ const Register = () => {
 
     // Call the registration API
     try {
-      const response = await fetch("/user/registerUser", {
+      const response = await fetch(`${baseUrl}user/registerUser`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

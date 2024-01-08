@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/app/components/header";
 import { useParams } from "next/navigation";
+import baseUrl from "@/app/api-config";
 
 export default function EditBlog() {
   const params = useParams();
@@ -20,7 +21,7 @@ export default function EditBlog() {
     // Fetch the blog data for editing
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`/blognew/${id.slug}`);
+        const response = await fetch(`${baseUrl}blognew/${id.slug}`);
         if (response.ok) {
           const result = await response.json();
           setBlog(result.data);
@@ -40,7 +41,7 @@ export default function EditBlog() {
   const handleEditBlog = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`/blog/${id.slug}`, {
+      const response = await fetch(`${baseUrl}blog/${id.slug}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json", // Change the Content-Type header

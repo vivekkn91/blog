@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import baseUrl from "@/app/api-config";
 import Header from "@/app/components/header";
 export default function Post() {
   const params = useParams();
@@ -14,7 +15,7 @@ export default function Post() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`/blognew/${id.slug}`);
+        const response = await fetch(`${baseUrl}blognew/${id.slug}`);
         if (response.ok) {
           const result = await response.json();
           setBlog(result.data); // Access the data property
